@@ -1,0 +1,3 @@
+[submodule "bedrock-viz"]
+	path = bedrock-viz
+	url = https://github.com/bedrock-viz/bedrock-viz.git
