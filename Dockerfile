@@ -1,4 +1,4 @@
-FROM nginx as builder
+FROM ubuntu:20.04 as builder
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y cmake g++ git libboost-program-options-dev libpng++-dev zlib1g-dev
@@ -13,7 +13,7 @@ RUN cd /bedrock-viz && \
     make && \
     make install
 
-FROM nginx
+FROM ubuntu:20.04
 
 RUN apt-get update && \
     apt-get install -y libpng16-16 libboost-program-options-dev cron && \
@@ -24,3 +24,5 @@ COPY --from=builder /usr/local/bin/bedrock-viz /usr/local/bin/
 
 COPY map-update.sh /etc/cron.hourly/
 RUN chmod +x /etc/cron.hourly/map-update.sh
+
+ENTRYPOINT [ "cron -f" ]
