@@ -5,6 +5,7 @@ Twice an hour copy your world and generate map with bedrock-viz in html format t
 
 variables:
    GENMAP_CRON : set frequency in cron format (default 30mn : */30 * * * *)
+   
    MapSource: set world folder (default /source)
 
 You can run with
