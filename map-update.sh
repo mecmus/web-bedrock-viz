@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ -d ${MapSource:-/source} ]; then
   echo "copy source to working directory"
-  cp -r /source /tmp/MapCopy
+  cp -r ${MapSource:-/source} /tmp/MapCopy
 else
   echo "MapSource not set or not a directory"
   exit 1
