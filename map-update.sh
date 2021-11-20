@@ -1,4 +1,6 @@
 #!/bin/bash
+source /env
+echo "MapSource = $MapSource"
 if [ -d ${MapSource:-/source} ]; then
   echo "copy source to working directory"
   cp -r ${MapSource:-/source} /tmp/MapCopy
