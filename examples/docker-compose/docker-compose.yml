@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  minecraft-server:
+    image: itzg/minecraft-bedrock-server
+    ports:
+      - 19132:19132/udp
+    healthcheck:
+      test: ["CMD", "mc-monitor", "status-bedrock", "127.0.0.1"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - $MAP_PATH:/data
+  web-bedrock-viz:
+    build: ../..
+    ports:
+      - 80:80
+    volumes:
+      - $MAP_PATH/worlds/$LEVEL_NAME:/source
