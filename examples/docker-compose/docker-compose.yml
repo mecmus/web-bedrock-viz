@@ -11,10 +11,10 @@ services:
       retries: 3
       start_period: 30s
     volumes:
-      - $MAP_PATH:/data
+      - ${MAP_PATH:-./data}:/data
   web-bedrock-viz:
     build: ../..
     ports:
       - 80:80
     volumes:
-      - $MAP_PATH/worlds/$LEVEL_NAME:/source
+      - ${MAP_PATH:-./data}/worlds/${LEVEL_NAME:-world}:/source
