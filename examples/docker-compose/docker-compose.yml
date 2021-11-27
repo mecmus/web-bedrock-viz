@@ -2,6 +2,8 @@ version: "3.9"
 services:
   minecraft-server:
     image: itzg/minecraft-bedrock-server
+    env_file:
+      - .env
     ports:
       - 19132:19132/udp
     healthcheck:
@@ -14,6 +16,8 @@ services:
       - ${MAP_PATH:-./data}:/data
   web-bedrock-viz:
     build: ../..
+    env_file:
+      - .env
     ports:
       - 80:80
     volumes:
