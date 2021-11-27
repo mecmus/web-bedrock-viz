@@ -1,0 +1,6 @@
+# your variables
+.env
+
+#your folders
+data/
+html/
