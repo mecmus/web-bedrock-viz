@@ -22,3 +22,4 @@ services:
       - 80:80
     volumes:
       - ${MAP_PATH:-./data}/worlds/${LEVEL_NAME:-world}:/source
+      - ${MAP_HTML:-./html}:/usr/share/nginx/html
